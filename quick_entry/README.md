@@ -86,7 +86,7 @@ For the sake of clean-up, you may want to then drop the migration database in th
  drop database migration;
 ```
 
-## Sharing Data Back
+### Sharing Data Back
 
 Once you've done the above, you'll want to share the data back to your main account so that you can use it in any downstream processes. 
 

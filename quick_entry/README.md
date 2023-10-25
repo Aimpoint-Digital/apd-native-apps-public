@@ -18,7 +18,7 @@ The Snowflake Data Entry App is a user-friendly tool designed to streamline manu
 
 ![image3](screenshots/image3.png)
 
-## Accessing QuickEntry Outside of AWS us-east-1
+## Accessing QuickEntry Outside of AWS us-east-1 - ADMINS ONLY
 
 *Note: The Following Should Only Be Read by Admins or Org Admins*
 

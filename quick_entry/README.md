@@ -18,11 +18,11 @@ The Snowflake Data Entry App is a user-friendly tool designed to streamline manu
 
 ![image3](screenshots/image3.png)
 
-## Accessing QuickEntry Outside of AWS us-east-1 - ADMINS ONLY
+## Accessing QuickEntry Outside of AWS - ADMINS ONLY
 
 *Note: The Following Should Only Be Read by Admins or Org Admins*
 
-Unfortunately, while native apps are in public preview, QuickEntry can only be installed in AWS us-east-1. If your account is not based on AWS us-east-1, you can still benefit from QuickEntry, but you will have to use Snowflake's secure data sharing.
+Unfortunately, while native apps are in public preview, QuickEntry can only be installed in AWS. If your account is not based on AWS, you can still benefit from QuickEntry, but you will have to use Snowflake's secure data sharing.
 
 While the process is slightly cumbersome, we have all the code below ready for you to copy and paste. 
 
@@ -46,7 +46,7 @@ This action must be performed by an orgadmin.
  select system$global_account_set_parameter('<organization_name>.<account_name>', 'ENABLE_ACCOUNT_DATABASE_REPLICATION', 'true');
 ```
 
-### Migrate Editable Data to AWS us-east-1
+### Migrate Editable Data to AWS
 
 You will have to move the data you want people to edit over to your new account, and then share it back to your main account. Start by creating a database with everything you want to move over. 
 
@@ -68,7 +68,7 @@ Then you will want to share that with the new account
 ```sql
  alter database migration enable replication to accounts <organization_name>.<account_name>
 ```
-Next, switch to your account in AWS us-east-1 and create a replica. Snowflake recommend increasing the session timeout for such operations, which you can do, but any data you're editing manually should be small enough to replicate quickly. However, please read [this documentation](https://docs.snowflake.com/en/user-guide/database-replication-config#increasing-the-statement-timeout-for-the-initial-replication) if you wish to do so.
+Next, switch to your account in AWS and create a replica. Snowflake recommend increasing the session timeout for such operations, which you can do, but any data you're editing manually should be small enough to replicate quickly. However, please read [this documentation](https://docs.snowflake.com/en/user-guide/database-replication-config#increasing-the-statement-timeout-for-the-initial-replication) if you wish to do so.
 
 In order to be able to write to the data, you will have to create a clone.
 

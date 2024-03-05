@@ -82,7 +82,3 @@ CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
 This application was developed by **[Aimpoint Digital](https://aimpointdigital.com/)** - an end-to-end analytics firm that uses data to solve its clients’ most complex use-cases. We offer consulting support across data engineering, data analytics, data science and analytic strategy practices. As an **Elite Snowflake Partner** we can help you with anything from migrations, to native apps to advanced ML in Snowflake.
 
 If you encounter any issues, please do reach out to us directly at **nativeapps@aimpointdigital.com** - be sure to include as many screenshots and detail as possible.
-## ABOUT & HELP
-This application was developed by **[Aimpoint Digital](https://aimpointdigital.com/)** - an end-to-end analytics firm that uses data to solve its clients’ most complex use-cases. We offer consulting support across data engineering, data analytics, data science and analytic strategy practices. As an **Elite Snowflake Partner** we can help you with anything from migrations, to native apps to advanced ML in Snowflake.
-
-If you encounter any issues, please do reach out to us directly at **nativeapps@aimpointdigital.com** - be sure to include as many screenshots and detail as possible.

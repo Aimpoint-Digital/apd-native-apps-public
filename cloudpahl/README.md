@@ -19,8 +19,10 @@ The application requires access to the **SNOWFLAKE** database. Please use the **
 *The warehouse granted here will be utilized only by the task created in step 2 for refreshing app data*
 
 ### 2) Run SETUP_CLOUDPAHL() to initialize account usage data for app and set the refresh cadence
-1. Navigate to a Snowflake worksheet.
-2. ``` CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL(<refresh-cadence>); ```
+Navigate to a Snowflake worksheet and run the below procedure.
+``` 
+CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL(<refresh-cadence>);
+```
 
 \<refresh-cadence\> *OPTIONAL* \
 The cadence data is refreshed via task. Accepted values are 'daily', 'weekly', 'monthly', or a custom CRON schedule (with timezone). 
@@ -29,7 +31,7 @@ The cadence data is refreshed via task. Accepted values are 'daily', 'weekly', '
 - 'monthly' creates task to run monthly, on the 1st of every month at 4am UTC
 
 *The setup script completion time varies depending on the size of the account and the warehouse running the job. When you see this, or a similar result from `SETUP_CLOUDPAHL()`, you can continue on to the next steps:* \
-```Setup complete: Data loaded. Task has been created using a cadence of daily```
+"Setup complete: Data loaded. Task has been created using a cadence of daily"
 
 ### 3) Navigate back to CloudPAHL App and Begin Exploring!
 
@@ -62,20 +64,20 @@ The page will reload with data from selected date range
 
 ### Appendix / Example Scripts
 ```
+CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL();
+-- Loads account usage data once, does not create a recurring task
+
+CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('daily');
+-- Loads account usage data once, creates a tast to update daily
+
+CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
+-- Loads account usage data, creates task to run twice a day at midnight and noon UTC
+
 CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK(); 
 -- Remove existing task
 
 CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK('*/3 * * * * Etc/UTC'); 
 -- Update task schedule
-
-CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL();
--- Loads account usage data once, does not create a recurring task
-
-CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('daily', 'compute_wh');
--- Loads account usage data once, creates a tast to update daily
-
-CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
--- Loads account usage data, creates task to run twice a day at midnight and noon UTC
 ```
 
 ## ABOUT & HELP

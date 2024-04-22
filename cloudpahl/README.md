@@ -1,4 +1,4 @@
-# Welcome to CloudPAHL by Aimpoint Digital! 
+# Welcome to CloudPAHL by Aimpoint Digital!  
 
 ## INTRODUCTION
 **The purpose of this application is to allow administrators & super users to explore, understand, and optimize their Snowflake account usage.** \
@@ -10,7 +10,7 @@
 
 ## HOW TO
 ### 0) Requirements
-The application requires access to the **SNOWFLAKE** database. Please use the **ACCOUNTADMIN** role for setup to grant the application access to this database. 
+The application requires access to the **SNOWFLAKE** database. Please use the **ACCOUNTADMIN** role for setup to grant the application access to this database. If your account does not have access to the **ORGANIZATION_USAGE** schema within the **SNOWFLAKE** database you will be unable to view cost metrics. If you are interested in seeing cost metrics, please ensure you install CloudPAHL on an account with access to this schema.
 *We recommend running the CloudPAHL app on an XS warehouse, with the ability to auto-scale to 3 clusters maximum.*
 
 ### 1) Grant Permissions within CloudPAHL App
@@ -34,33 +34,7 @@ The cadence data is refreshed via task. Accepted values are 'daily', 'weekly', '
 "Setup complete: Data loaded. Task has been created using a cadence of daily"
 
 ### 3) Navigate back to CloudPAHL App and Begin Exploring!
-
-![Click the blue "Load Data" button to access the data from Setup](screenshots/image.png)
-
-Confirm data has been loaded
-
-![Confirm data has been loaded](screenshots/image-1.png)
-
-Click through the pages in the sidebar. 
-
-You'll see this progress bar as the page loads. 
-
-![You'll see this progress bar as the page loads](screenshots/image-2.png)
-
-When the page is fully loaded the status bar will turn green
-
-![When the page is fully loaded the status bar will turn green](screenshots/image-3.png)
-
-### (4) Change Date Filters
-Choose a new date range. 
-
-![Date Filters](screenshots/image-4.png)
-
-Click **'Apply'** to submit selected dates. 
-
-![Apply new filter range](screenshots/image-5.png)
-
-The page will reload with data from selected date range
+Once the setup process is complete, please navigate to the **'CloudPAHL App Interface'** tab located in the top-left of your screen. Click the blue **'Load Data'** button to access the data from Setup. Confirm data has been loaded. Click through the pages in the sidebar. You'll see this progress bar as the page loads. When the page is fully loaded the status bar will turn green. Choose a new date range. Click **'Apply'** to submit selected dates. The page will reload with data from the selected date range.
 
 ### Appendix / Example Scripts
 ```
@@ -68,16 +42,13 @@ CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL();
 -- Loads account usage data once, does not create a recurring task
 
 CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('daily');
--- Loads account usage data once, creates a tast to update daily
+-- Loads account usage data once, creates a task to update daily
 
 CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
 -- Loads account usage data, creates task to run twice a day at midnight and noon UTC
 
 CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK(); 
 -- Remove existing task
-
-CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK('*/3 * * * * Etc/UTC'); 
--- Update task schedule
 ```
 
 ## ABOUT & HELP

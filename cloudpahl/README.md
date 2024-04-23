@@ -47,6 +47,9 @@ CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('daily');
 CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
 -- Loads account usage data, creates task to run twice a day at midnight and noon UTC
 
+CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK('daily'); 
+-- Creates or replaces task to update daily
+
 CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK(); 
 -- Remove existing task
 ```

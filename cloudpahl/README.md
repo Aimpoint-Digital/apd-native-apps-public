@@ -21,7 +21,7 @@ The application requires access to the **SNOWFLAKE** database. Please use the **
 ### 2) Run SETUP_CLOUDPAHL() to initialize account usage data for app and set the refresh cadence
 Navigate to a Snowflake worksheet and run the below procedure. NB. Query history (solely) will be incrementally loaded after initial load due to its typical large volume.
 ``` 
-CALL CLOUDPAHL.CODE_SCHEMA.SETUP.CLOUD_PAHL(<refresh-cadence>);
+CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL(<refresh-cadence>);
 ```
 
 \<refresh-cadence\> *OPTIONAL* \

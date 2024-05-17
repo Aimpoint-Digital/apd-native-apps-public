@@ -19,9 +19,9 @@ The application requires access to the **SNOWFLAKE** database. Please use the **
 *The warehouse granted here will be utilized only by the task created in step 2 for refreshing app data*
 
 ### 2) Run SETUP_CLOUDPAHL() to initialize account usage data for app and set the refresh cadence
-Navigate to a Snowflake worksheet and run the below procedure.
+Navigate to a Snowflake worksheet and run the below procedure. NB. Query history (solely) will be incrementally loaded after initial load due to its typical large volume.
 ``` 
-CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL(<refresh-cadence>);
+CALL CLOUDPAHL.CODE_SCHEMA.SETUP.CLOUD_PAHL(<refresh-cadence>);
 ```
 
 \<refresh-cadence\> *OPTIONAL* \
@@ -38,13 +38,13 @@ Once the setup process is complete, please navigate to the **'CloudPAHL App Inte
 
 ### Appendix / Example Scripts
 ```
-CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL();
+CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL();
 -- Loads account usage data once, does not create a recurring task
 
-CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('daily');
+CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL('daily');
 -- Loads account usage data once, creates a task to update daily
 
-CALL CLOUDPAHL.CACHE_TABLES.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
+CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
 -- Loads account usage data, creates task to run twice a day at midnight and noon UTC
 
 CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK('daily'); 

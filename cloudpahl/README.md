@@ -1,5 +1,5 @@
 # Welcome to CloudPAHL by Aimpoint Digital! 
-## A Snowflake Health Check Native App Available on Snowflake Marketplace.
+A Snowflake Health Check Native App Available on Snowflake Marketplace.
 
 ### INTRODUCTION
 **The purpose of the CloudPAHL application is to allow administrators & super users to explore, understand, and optimize their Snowflake account usage.** \

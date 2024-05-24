@@ -6,7 +6,7 @@ identifying high-expense warehouses and lengthy queries, utilizing a proprietary
 accurately attribute 100% of Snowflake compute costs to users and applications.
 
 ### APP DETAILS
-**The purpose of the CloudPAHL application is to allow administrators & super users to explore, understand, and optimize their Snowflake account usage.** \
+**The purpose of the CloudPAHL application is to allow administrators & super users to explore, understand, and optimize their Snowflake account usage.** 
 
 **CloudPAHL** is comprised of four pages that support Snowflake assessment: 
 1. **Platform Overview:** Summarizes both utilized and underutilized Snowflake Services 

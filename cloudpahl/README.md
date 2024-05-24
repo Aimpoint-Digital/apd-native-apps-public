@@ -1,4 +1,4 @@
-# Welcome to CloudPAHL, A Snowflake Health Check App by Aimpoint Digital! 
+# Introducing CloudPAHL, A Snowflake Health Check App by Aimpoint Digital
 
 ### APP DETAILS
 **The purpose of the CloudPAHL application is to allow administrators & super users to explore, understand, and optimize their Snowflake account usage.** \

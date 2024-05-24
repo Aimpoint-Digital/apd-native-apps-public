@@ -1,58 +1,12 @@
-# Welcome to CloudPAHL by Aimpoint Digital!  
+# Welcome to CloudPAHL by Aimpoint Digital! A Snowflake Health Check Native App Available on Snowflake Marketplace.
 
 ## INTRODUCTION
-**The purpose of this application is to allow administrators & super users to explore, understand, and optimize their Snowflake account usage.** \
+**The purpose of the CloudPAHL application is to allow administrators & super users to explore, understand, and optimize their Snowflake account usage.** \
 **CloudPAHL** is comprised of four pages: 
 1. **Platform Overview:** Summarizes both utilized and underutilized Snowflake Services 
-2. **Audit Review:** Examines user behavior, identifies groups in need to additional training, and assesses for necessary action reviews or permission adjustments 
+2. **Audit Review:** Examines user behavior, identifies groups in need of additional training, and assesses for necessary action reviews or permission adjustments 
 3. **Health Check Analysis:** Assesses cost and credit trends, attributing them to determine if Snowflake is scaling as anticipated or if unexpected costs are emerging and where 
 4. **Lineage Visualization:** Displays role and object permissions 
-
-## HOW TO
-### 0) Requirements
-The application requires access to the **SNOWFLAKE** database. Please use the **ACCOUNTADMIN** role for setup to grant the application access to this database. If your account does not have access to the **ORGANIZATION_USAGE** schema within the **SNOWFLAKE** database you will be unable to view cost metrics. If you are interested in seeing cost metrics, please ensure you install CloudPAHL on an account with access to this schema.
-*We recommend running the CloudPAHL app on an XS warehouse, with the ability to auto-scale to 3 clusters maximum.*
-
-### 1) Grant Permissions within CloudPAHL App
-1. Please navigate Apps > CloudPAHL > to the **'CloudPAHL App Interface'** tab.
-2. Grant application permissions as prompted by app. \
-*The warehouse granted here will be utilized only by the task created in step 2 for refreshing app data*
-
-### 2) Run SETUP_CLOUDPAHL() to initialize account usage data for app and set the refresh cadence
-Navigate to a Snowflake worksheet and run the below procedure. NB. Query history (solely) will be incrementally loaded after initial load due to its typical large volume.
-``` 
-CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL(<refresh-cadence>);
-```
-
-\<refresh-cadence\> *OPTIONAL* \
-The cadence data is refreshed via task. Accepted values are 'daily', 'weekly', 'monthly', or a custom CRON schedule (with timezone). 
-- 'daily' creates task to run daily at 4am UTC
-- 'weekly' creates task to run weekly on, every Sunday at 4am UTC
-- 'monthly' creates task to run monthly, on the 1st of every month at 4am UTC
-
-*The setup script completion time varies depending on the size of the account and the warehouse running the job. When you see this, or a similar result from `SETUP_CLOUDPAHL()`, you can continue on to the next steps:* \
-"Setup complete: Data loaded. Task has been created using a cadence of daily"
-
-### 3) Navigate back to CloudPAHL App and Begin Exploring!
-Once the setup process is complete, please navigate to the **'CloudPAHL App Interface'** tab located in the top-left of your screen. Click the blue **'Load Data'** button to access the data from Setup. Confirm data has been loaded. Click through the pages in the sidebar. You'll see this progress bar as the page loads. When the page is fully loaded the status bar will turn green. Choose a new date range. Click **'Apply'** to submit selected dates. The page will reload with data from the selected date range.
-
-### Appendix / Example Scripts
-```
-CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL();
--- Loads account usage data once, does not create a recurring task
-
-CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL('daily');
--- Loads account usage data once, creates a task to update daily
-
-CALL CLOUDPAHL.CODE_SCHEMA.SETUP_CLOUDPAHL('0 0,12 * * * Etc/UTC');
--- Loads account usage data, creates task to run twice a day at midnight and noon UTC
-
-CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK('daily'); 
--- Creates or replaces task to update daily
-
-CALL CLOUDPAHL.TASK_SCHEMA.SETUP_TASK(); 
--- Remove existing task
-```
 
 ## ABOUT & HELP
 This application was developed by **[Aimpoint Digital](https://aimpointdigital.com/)** - an end-to-end analytics firm that uses data to solve its clients’ most complex use-cases. We offer consulting support across data engineering, data analytics, data science and analytic strategy practices. As an **Elite Snowflake Partner** we can help you with anything from migrations, to native apps to advanced ML in Snowflake.

@@ -18,11 +18,11 @@ The Snowflake Data Entry App is a user-friendly tool designed to streamline manu
 
 ![image3](screenshots/image3.png)
 
-## Accessing QuickEntry Outside of AWS - ADMINS ONLY
+## Accessing QuickEntry Outside of AWS or Azure - ADMINS ONLY
 
 *Note: The Following Should Only Be Read by Admins or Org Admins*
 
-Unfortunately, while native apps are in public preview, QuickEntry can only be installed in AWS. If your account is not based on AWS, you can still benefit from QuickEntry, but you will have to use Snowflake's secure data sharing.
+Unfortunately, while native apps are in public preview, QuickEntry can only be installed in AWS or Azure. If your account is not based on AWS or Azure, you can still benefit from QuickEntry, but you will have to use Snowflake's secure data sharing.
 
 While the process is slightly cumbersome, we have all the code below ready for you to copy and paste. 
 

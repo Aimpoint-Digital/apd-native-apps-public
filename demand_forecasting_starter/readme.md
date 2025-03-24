@@ -2,7 +2,7 @@
 As businesses strive to optimize operations and minimize waste, demand forecasting has become essential. The **Demand Forecasting Starter** app addresses this need by leveraging machine learning algorithms to generate demand forecasts, all housed natively within a Snowflake app.  
 
 ## APP DETAILS  
-**The purpose of the Demand Forecasting Starter application is to enable businesses to generate demand forecasts directly within Snowflake, without requiring external infrastructure. **  
+**The purpose of the Demand Forecasting Starter application is to enable businesses to generate demand forecasts directly within Snowflake, without requiring external infrastructure.**  
 
 **Demand Forecasting Starter** provides simple forecasting through 4 core functionalities:  
 1. **Data Preparation:** Ingests and structures historical data for forecasting, ensuring consistency and reliability.  
